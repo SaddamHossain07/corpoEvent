@@ -9,14 +9,14 @@
     {
         "id": 2,
         "name": "Trade Shows and Expos",
-        "image": "https://example.com/tradeshows.jpg",
+        "image": "https://i.ibb.co/25tRn4K/trade-shows.webp",
         "price": 8000,
         "short_description": "Trade shows and expos are powerful platforms for showcasing your brand and products. Our event management team excels in creating captivating trade show experiences that attract visitors and drive business. From booth design to logistics, we handle it all. Our expert staff ensures your company stands out amidst the competition, delivering impressive ROI and increasing your market presence."
     },
     {
         "id": 3,
         "name": "Team Building Workshops",
-        "image": "https: //i.ibb.co/kD2CYdC/team-building.webp",
+        "image": "https://i.ibb.co/kD2CYdC/team-building.webp",
         "price": 2500,
         "short_description": "Boost employee morale, foster teamwork, and improve productivity with our engaging team-building workshops. Our customized programs cater to your company's unique needs, from outdoor adventure challenges to indoor problem-solving exercises. Our experienced facilitators create a fun and inclusive environment, leaving your team inspired and motivated to excel."
     },
@@ -30,14 +30,14 @@
     {
         "id": 5,
         "name": "Corporate Meetings",
-        "image": "https: //i.ibb.co/YyTfZ8S/QCF-Meeting-1.jpg",
+        "image": "https://i.ibb.co/YyTfZ8S/QCF-Meeting-1.jpg",
         "price": 3500,
         "short_description": "Efficient corporate meetings are vital for business success. We offer comprehensive corporate meeting planning services, taking care of everything from agenda creation to logistical details. Our experienced team ensures that your meetings run smoothly, allowing your organization to focus on important discussions and decisions."
     },
     {
         "id": 6,
         "name": "Award Ceremonies",
-        "image": "https: //i.ibb.co/QY7zxnm/awards.png",
+        "image": "https://i.ibb.co/QY7zxnm/awards.png",
         "price": 4500,
         "short_description": "Recognize and celebrate excellence within your organization with our meticulously planned award ceremonies. We create elegant and memorable events to honor your top performers. From elegant gala dinners to intimate award presentations, we make sure every detail reflects the prestige of the occasion. Let us help you show appreciation and motivate your team to achieve even greater heights."
     }
