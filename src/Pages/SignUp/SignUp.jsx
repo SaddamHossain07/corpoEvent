@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const alartNotification = () => toast("SignUp successfully!");
 
 const SignUp = () => {
     const { registerUser } = useContext(AuthContext)
@@ -13,6 +17,7 @@ const SignUp = () => {
         registerUser(email, password)
             .then(result => {
                 console.log(result.user)
+                alartNotification()
             })
             .catch(error => {
                 console.error(error);

@@ -1,9 +1,17 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { GoogleAuthProvider } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const alartNotification = () => toast("Login successfully!");
+
+
+const provider = new GoogleAuthProvider()
 
 const SignIn = () => {
-    const { logIn } = useContext(AuthContext)
+    const { logIn, signInWithGoogle } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -14,19 +22,38 @@ const SignIn = () => {
         logIn(email, password)
             .then(result => {
                 console.log(result.user.email)
+
+                alartNotification()
                 navigate(location?.state ? location.state : '/')
+
             })
             .catch(error => {
                 console.error(error)
             })
 
+
     }
+
+    const handleGoogleSignIn = () => {
+        const alartNotification = () => toast("Login successfully!");
+        signInWithGoogle(provider)
+            .then(result => {
+                console.log(result.user.email)
+
+                alartNotification()
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
     return (
         <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-16">
 
             <div className="w-full mx-auto max-w-sm p-4 border bg-slate-100 border-gray-200 rounded-lg shadow sm:p-6 md:p-8">
                 <h5 className="text-3xl font-bold text-gray-900 text-center">Sign In to <span className="logoText">corpoEvent</span></h5>
-                <button className="border-2 border-purple-600 rounded-lg py-3 px-4 mt-6 flex gap-4 justify-center font-semibold w-full">
+                <button onClick={handleGoogleSignIn} className="border-2 border-purple-600 rounded-lg py-3 px-4 mt-6 flex gap-4 justify-center font-semibold w-full">
                     <span><img className="h-6" src="https://i.ibb.co/1RHYhnL/download.png" alt="" /></span>
                     Continue with Google
                 </button>
