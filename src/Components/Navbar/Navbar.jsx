@@ -1,7 +1,16 @@
 import { FaUserCircle } from 'react-icons/fa';
 import './Navbar.css'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+    const handleSignOut = () => {
+        return logOut()
+            .then()
+            .catch()
+    }
 
     const navLinks = <>
         <li>
@@ -17,6 +26,14 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-[#8758F1] underline" : ""
             }
             >About
+
+            </NavLink>
+        </li>
+        <li>
+            <NavLink to="/signup" className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#8758F1] underline" : ""
+            }
+            >Sign Up
 
             </NavLink>
         </li>
@@ -43,11 +60,15 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end mr-6">
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full flex justify-center items-center">
-                            <FaUserCircle className='text-[40px]'></FaUserCircle>
+                            {
+                                user ? <img src={user?.photoURL} />
+                                    : <FaUserCircle className='text-[40px]'></FaUserCircle>
+                            }
+
                             {/* <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" /> */}
                         </div>
                     </label>
@@ -62,6 +83,14 @@ const Navbar = () => {
                         <li><a>Logout</a></li>
                     </ul>
                 </div>
+                {
+                    user ? <button onClick={handleSignOut} >Sign Out</button>
+                        :
+                        <Link to='/signin'>
+                            <button>Sign In</button>
+                        </Link>
+                }
+
             </div>
         </div>
     );
